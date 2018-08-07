@@ -6,6 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.alibaba.fastjson.JSON;
+import com.edu.test.bean.ResponseBean;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
@@ -40,7 +42,8 @@ public class TokenFilter extends ZuulFilter  {
         if(accessToken == null) {
             ctx.setSendZuulResponse(false);
             ctx.setResponseStatusCode(401);
-            //ctx.setResponseBody(JSON.toJSONString(new ResponseBean(401, "Unauthorized", null)));
+            ctx.setSendZuulResponse(false);
+            ctx.setResponseBody(JSON.toJSONString(new ResponseBean(401, "Token is empty, please login.", null)));
             return null;
         }
         return null;
