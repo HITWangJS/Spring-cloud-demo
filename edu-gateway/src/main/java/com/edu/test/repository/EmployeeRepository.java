@@ -8,7 +8,7 @@ public class EmployeeRepository {
     public Employee findByIntranetId(String intranetId) {
         Employee employee = new Employee();
         employee.setId("testId");
-        employee.setIntranetId("jswangcd@cn.ibm.com");
+        employee.setIntranetId("testIntranetId");
         employee.setEmployee_systemrole("employee");
         employee.setEmployee_identification("eeece5dbc6e6886dcbe580c62d0b66d0");
         return employee;
